@@ -13,8 +13,10 @@ db = SQLAlchemy(metadata=metadata)
 class Pet(db.Model):
     __tablename__ = 'pets'
 
-    id = db.Column(db.Integer)
-    name = db.Column(db.String)
+    # Column names that are set up as Class Attributes
+    # using db.Column() to define it as a column, then passing in the data type. add constraints here as well
+    id = db.Column(db.Integer, primary_key=True) # this is now the primary key in our database
+    name = db.Column(db.String(50)) # sets the maximum characters to 50
     species = db.Column(db.String)
 
     def __repr__(self):
